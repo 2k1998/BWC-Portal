@@ -1,0 +1,90 @@
+/* Reusing some styles from Modal.css but with specific overrides for the event pop-up */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050; /* Ensure it's on top */
+}
+
+.event-modal-content {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: var(--border-radius-default);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    border-top: 5px solid var(--color-gold-primary);
+    animation: fadeInScaleUp 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.event-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-gray-medium);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.event-modal-header h2 {
+    margin: 0;
+    color: var(--color-gold-primary);
+    font-size: 1.8em;
+}
+
+.event-modal-header .close-button {
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+    color: var(--color-gray-dark);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.event-modal-header .close-button:hover {
+    color: var(--color-black);
+}
+
+.event-modal-body h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--color-black);
+}
+
+.event-modal-body .event-detail {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.event-modal-body .event-detail strong {
+    color: var(--color-gray-dark);
+}
+
+.event-modal-body .event-description {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--color-gray-medium);
+    line-height: 1.6;
+    font-style: italic;
+}

@@ -1,0 +1,83 @@
+:root {
+  /* BWC Colors */
+  --color-black: #1a1a1a; /* A soft black for backgrounds/text */
+  --color-white: #ffffff;
+  --color-gold-primary: #b8860b; /* DarkGoldenrod - a classic gold */
+  --color-gold-accent: #ffd700; /* Gold - brighter for highlights */
+  --color-gold-text: #a1700b; /* A darker gold for readability on light backgrounds */
+  --color-gray-light: #f0f0f0;
+  --color-gray-medium: #ccc;
+  --color-gray-dark: #666;
+
+  /* Semantic Colors (reusing BWC palette or standard web colors) */
+  --color-success: #28a745; /* Green for success */
+  --color-error: #dc3545;   /* Red for error */
+  --color-info: #17a2b8;    /* Blue for info */
+  --color-warning: #ffc107; /* Orange for warning */
+
+  /* --- NEW: Specific colors for task badges if different from semantic --- */
+  --badge-color-blue: #007bff;   /* For Urgent only */
+  --badge-color-green: #28a745;  /* For Important only */
+  --badge-color-yellow: #ffc107; /* For Not Urgent/Not Important */
+  --badge-color-orange: #fd7e14; /* For All Day Deadline */
+  /* --- END NEW --- */
+
+  /* Other global variables */
+  --border-radius-default: 8px;
+  --box-shadow-default: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --font-family-primary: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-gray-light); /* Light gray background for the whole page */
+  color: var(--color-black); /* Default text color */
+  line-height: 1.6;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-black); /* Default heading color */
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+a {
+  color: var(--color-gold-primary); /* Default link color */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: var(--font-family-primary);
+}
+
+/* Styling for the react-datepicker input field to match other form inputs */
+.custom-datepicker-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-gray-medium);
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  font-family: inherit;
+}
+
+.custom-datepicker-input:focus {
+  outline: none;
+  border-color: var(--color-gold-primary);
+  box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.2);
+}

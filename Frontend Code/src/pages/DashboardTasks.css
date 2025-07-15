@@ -1,0 +1,109 @@
+/* src/pages/DashboardTasks.css */
+
+/* Main grid container for the entire dashboard layout */
+.dashboard-grid-container {
+    display: grid;
+    /* Enforce a strict 2-column layout */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px; /* Space between all grid items */
+    align-items: stretch; /* Make all items in a row the same height */
+}
+
+/* Base styling for the task category "tables" or cards */
+.task-category-card {
+    background-color: var(--color-white); /* White background */
+    border: 3px solid var(--color-gray-medium); /* Default border */
+    border-radius: var(--border-radius-default);
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Allows list to fill height */
+    box-shadow: var(--box-shadow-default);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-category-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-gray-light);
+    text-align: left;
+}
+
+.task-category-card p {
+    text-align: center;
+    color: var(--color-gray-dark);
+    font-size: 0.9em;
+    flex-grow: 1; /* Pushes list to top and this to bottom */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling for the list within each card */
+.task-category-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.task-category-list-item {
+    padding: 8px 5px;
+    border-bottom: 1px solid var(--color-gray-light);
+}
+
+.task-category-list-item:last-child {
+    border-bottom: none;
+}
+
+.task-category-title {
+    font-weight: bold;
+}
+
+.task-category-deadline {
+    font-style: italic;
+    color: var(--color-gray-dark);
+    font-size: 0.9em;
+}
+
+/* Color-coded border classes based on "Χωρίς τίτλο.png" */
+.task-category-card.red-category {
+    border-color: var(--color-error); /* Red */
+}
+
+.task-category-card.blue-category {
+    border-color: var(--badge-color-blue); /* Blue */
+}
+
+.task-category-card.green-category {
+    border-color: var(--badge-color-green); /* Green */
+}
+
+.task-category-card.yellow-category {
+    border-color: var(--badge-color-yellow); /* Yellow */
+}
+
+.task-category-card.orange-category {
+    border-color: var(--badge-color-orange); /* Orange */
+}
+
+/* Styling for the calendar wrapper within the grid */
+.dashboard-calendar-wrapper {
+    background-color: var(--color-white);
+    border: 3px solid var(--color-black); /* Black border */
+    border-radius: var(--border-radius-default);
+    padding: 20px;
+    box-shadow: var(--box-shadow-default);
+}
+
+/* On smaller screens, stack everything in a single column */
+@media (max-width: 900px) {
+    .dashboard-grid-container {
+        grid-template-columns: 1fr; /* Single column layout for very small screens */
+    }
+}

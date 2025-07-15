@@ -1,0 +1,313 @@
+/* src/pages/Tasks.css */
+.tasks-container {
+    width: 100%;
+    max-width: 1500px; /* Increased for a wider layout */
+    margin: 30px auto;
+    padding: 25px;
+    background-color: var(--color-white); /* White background */
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+}
+
+.tasks-container h1 {
+    text-align: center;
+    color: var(--color-black);
+    margin-bottom: 30px;
+}
+
+.toggle-form-button {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--color-gold-primary); /* Gold button */
+    color: var(--color-black); /* Black text */
+    border: none;
+    border-radius: var(--border-radius-default);
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-bottom: 25px;
+}
+
+.toggle-form-button:hover {
+    background-color: var(--color-gold-accent); /* Brighter gold on hover */
+    transform: translateY(-2px);
+}
+
+.create-task-form {
+    background-color: var(--color-gray-light); /* Light gray background for form */
+    padding: 25px;
+    border-radius: var(--border-radius-default);
+    margin-bottom: 30px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.create-task-form h3 {
+    text-align: center;
+    color: var(--color-black);
+    margin-bottom: 20px;
+}
+
+.create-task-form .form-group {
+    margin-bottom: 15px;
+}
+
+.create-task-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-black);
+}
+
+.create-task-form input[type="text"],
+.create-task-form textarea,
+.create-task-form input[type="datetime-local"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    color: var(--color-black);
+    background-color: var(--color-white);
+}
+
+.create-task-form input[type="text"]:focus,
+.create-task-form textarea:focus,
+.create-task-form input[type="datetime-local"]:focus {
+    outline: none;
+    border-color: var(--color-gold-primary);
+    /* Fallback for box-shadow if CSS variable is not a valid color value */
+    box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.3);
+}
+
+.create-task-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.create-task-form .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.create-task-form .checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    transform: scale(1.2); /* Slightly larger checkbox */
+}
+
+.create-task-form button[type="submit"] {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: var(--color-gold-primary); /* Gold button */
+    color: var(--color-black);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.create-task-form button[type="submit"]:hover {
+    background-color: var(--color-gold-accent);
+    transform: translateY(-2px);
+}
+
+/* Sections for Active and Completed Tasks */
+.active-tasks-section,
+.completed-tasks-section {
+    margin-top: 30px;
+}
+
+.active-tasks-section h2,
+.completed-tasks-section h2 {
+    text-align: center;
+    color: var(--color-black);
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    border-bottom: 2px solid var(--color-gray-medium); /* Separator */
+    padding-bottom: 10px;
+}
+
+.task-list {
+    margin-top: 15px;
+}
+
+.task-item {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-medium);
+    border-radius: var(--border-radius-default);
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--box-shadow-default);
+    transition: border-color 0.2s ease-in-out; /* Smooth transition for status colors */
+}
+
+/* Completed Task Styling */
+.task-item.completed {
+    background-color: var(--color-gray-light); /* Lighter background for completed */
+    border-color: var(--color-success); /* Green border for completed */
+    opacity: 0.8;
+    /* text-decoration: line-through; Optional, can be distracting */
+}
+
+.task-item.completed h3,
+.task-item.completed p {
+    color: var(--color-gray-dark); /* Dim text for completed */
+}
+
+.task-item h3 {
+    margin: 0 0 5px 0;
+    color: var(--color-black);
+    font-size: 1.4em;
+}
+
+.task-item p {
+    margin: 0;
+    color: var(--color-black);
+}
+
+.task-badges {
+    display: flex;
+    flex-wrap: wrap; /* Allow badges to wrap */
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* --- UPDATED/NEW Badge Styling --- */
+.badge {
+    padding: 5px 10px;
+    border-radius: 15px; /* Default to rounded rectangle */
+    font-size: 0.85em;
+    font-weight: bold;
+    color: var(--color-white); /* Default white text */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px; /* Ensure some width for text */
+    height: 25px; /* Consistent height */
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent shrinking in flex container */
+}
+
+/* Specific color for Status badges */
+.badge.status-new { background-color: var(--color-info); }
+.badge.status-in_progress { background-color: #0d6efd; }
+.badge.status-completed { background-color: var(--color-success); }
+.badge.all-day-badge {
+    background-color: var(--badge-color-orange) !important; /* <--- ADD !important HERE */
+}
+
+/* --- NEW: Specific Badge Combinations & Colors --- */
+
+/* For Urgent (only) */
+.badge.urgent-only {
+    background-color: var(--badge-color-blue); /* Blue */
+}
+
+/* For Important (only) */
+.badge.important-only {
+    background-color: var(--badge-color-green); /* Green */
+}
+
+/* For Not Urgent and Not Important */
+.badge.not-urgent-not-important {
+    background-color: var(--badge-color-yellow); /* Yellow */
+    color: var(--color-black); /* Black text on yellow */
+}
+
+/* For Urgent and Important (Red outline for item, red badge) */
+.badge.urgent-and-important {
+    background-color: var(--color-error); /* Red */
+    color: var(--color-white);
+}
+
+/* Red Circle Badge for single U or I (if not combined) */
+.badge.red-circle {
+    background-color: var(--color-error); /* Red */
+    border-radius: 50%; /* Make it a circle */
+    width: 35px; /* Smaller, explicit size for single icon/text */
+    height: 35px;
+    padding: 0; /* Remove padding for circle */
+    color: var(--color-white);
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+/* --- END UPDATED/NEW Badge Styling --- */
+
+
+/* --- Styling for task item with red outline (for Urgent + Important) --- */
+.task-item.urgent-important-highlight {
+    border-color: var(--color-error) !important; /* Force red border for the item */
+    box-shadow: 0 0 0 2px var(--color-error); /* Add a red glow around the item */
+}
+/* --- END NEW --- */
+
+.task-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: flex-end; /* Align buttons to the right */
+}
+
+.action-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.mark-complete {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.mark-complete:hover {
+    background-color: #218838; /* Fallback for darken(var(--color-success), 10%) */
+    transform: translateY(-2px);
+}
+
+.mark-incomplete {
+    background-color: var(--color-info); /* Use info blue to mark incomplete */
+    color: var(--color-white);
+}
+
+.mark-incomplete:hover {
+    background-color: #138496; /* Fallback for darken(var(--color-info), 10%) */
+    transform: translateY(-2px);
+}
+
+.edit-button { /* Keep for future edit functionality */
+    background-color: var(--color-warning);
+    color: var(--color-black);
+}
+
+.edit-button:hover {
+    background-color: #e0a800; /* Fallback for darken(var(--color-warning), 10%) */
+    transform: translateY(-2px);
+}
+
+.delete-button {
+    background-color: var(--color-error);
+    color: var(--color-white);
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Fallback for darken(var(--color-error), 10%) */
+    transform: translateY(-2px);
+}

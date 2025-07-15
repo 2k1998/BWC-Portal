@@ -1,0 +1,100 @@
+/* src/components/TaskForm.css */
+
+.company-dropdown-container {
+  position: relative;
+  width: 100%;
+}
+
+.company-dropdown-trigger {
+  position: relative;
+  cursor: pointer;
+}
+
+.company-input {
+  width: calc(100% - 30px);
+  padding: 10px;
+  border: 1px solid var(--color-gray-medium);
+  border-radius: 4px;
+  font-size: 1em;
+  background-color: var(--color-white);
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-gray-medium);
+}
+
+.company-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-medium);
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown-item {
+  padding: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-gray-light);
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-gray-light);
+}
+
+.dropdown-item.selected {
+  background-color: var(--color-gold-primary);
+  color: var(--color-black);
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.company-name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.company-details {
+  font-size: 0.9em;
+  color: var(--color-gray-dark);
+}
+
+.dropdown-loading,
+.dropdown-empty {
+  padding: 12px;
+  text-align: center;
+  color: var(--color-gray-dark);
+  font-style: italic;
+}
+
+.required {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Ensure form-group has proper styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--color-black);
+}

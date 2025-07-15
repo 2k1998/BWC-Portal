@@ -1,0 +1,212 @@
+/* src/pages/CalendarDashboard.css */
+
+.dashboard-container {
+    /* MODIFIED: Changed from max-width to a percentage-based width */
+    width: 100%; /* Takes up 95% of the available screen width */
+    max-width: 1500px; /* A fallback max-width for very large screens */
+    margin: 30px auto; /* Keeps the container centered horizontally */
+    padding: 20px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+    text-align: center;
+}
+
+.dashboard-container h1 {
+    color: var(--color-black);
+    margin-bottom: 10px;
+}
+
+.user-id-display {
+    color: var(--color-gray-dark);
+    margin-bottom: 20px;
+}
+
+.dashboard-intro {
+    color: var(--color-black);
+    margin-bottom: 30px;
+}
+
+.calendar-section-wrapper {
+    margin-top: 30px;
+    border-top: 1px solid var(--color-gray-medium);
+    padding-top: 30px;
+}
+
+.calendar-section-heading {
+    color: var(--color-black);
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.calendar-display-area {
+    height: 700px;
+}
+
+/* --- Hide default RBC toolbar (workaround) --- */
+.rbc-toolbar {
+    display: none !important;
+}
+/* --- END --- */
+
+/* --- Custom Calendar Toolbar Styling --- */
+.custom-calendar-toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--color-gray-light);
+    border-radius: var(--border-radius-default);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.custom-calendar-toolbar button {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 1px solid var(--color-gray-medium);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.custom-calendar-toolbar button:hover {
+    background-color: var(--color-gold-accent);
+    color: var(--color-black);
+    transform: translateY(-2px);
+}
+
+.custom-calendar-toolbar button.active {
+    background-color: var(--color-gold-primary);
+    color: var(--color-black);
+    border-color: var(--color-gold-primary);
+    box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.3);
+}
+/* --- END Custom Toolbar --- */
+
+/* --- NEW: Custom Month Navigation Toolbar Styling --- */
+.custom-month-navigation {
+    display: flex;
+    justify-content: space-between; /* Space out arrows and month display */
+    align-items: center;
+    margin-bottom: 15px; /* Space above view buttons */
+    padding: 10px 20px;
+    background-color: var(--color-black); /* Black background for navigation */
+    color: var(--color-white);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+}
+
+.nav-arrow-button {
+    background: none;
+    border: none;
+    color: var(--color-gold-accent); /* Gold arrows */
+    font-size: 1.8em;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.nav-arrow-button:hover {
+    color: var(--color-gold-primary);
+    transform: scale(1.1);
+}
+
+.current-month-display {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--color-white);
+    flex-grow: 1; /* Allow month display to take available space */
+    text-align: center; /* Center the month text */
+}
+
+/* --- NEW: Today Button Styling --- */
+.nav-today-button {
+    background-color: var(--color-gold-primary);
+    color: var(--color-black);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-left: 15px; /* Space from right arrow */
+}
+
+.nav-today-button:hover {
+    background-color: var(--color-gold-accent);
+    transform: translateY(-2px);
+}
+/* --- END NEW --- */
+
+
+/* --- NEW: AGGRESSIVE Current Day Highlight Styling --- */
+/* This targets the actual day cell background for today (should be fine) */
+.rbc-day-bg.rbc-today {
+    background-color: rgba(184, 134, 11, 0.1) !important; /* Lighter gold for today's background */
+}
+
+/* IMPORTANT: Target the specific date number button for TODAY */
+.rbc-date-cell.rbc-now .rbc-button-link { /* Ensure this selector is correct */
+    position: relative !important; /* Ensure positioning for z-index */
+    z-index: 2 !important; /* Bring to front */
+    display: flex !important; /* Force flex for centering */
+    justify-content: center !important; /* Center horizontally */
+    align-items: center !important; /* Center vertically */
+    width: 38px !important; /* Force circle size */
+    height: 38px !important; /* Force circle size */
+    border-radius: 50% !important; /* Force circle shape */
+    background-color: var(--color-gold-accent) !important; /* Force gold circle background */
+    color: var(--color-black) !important; /* Force black color for readability */
+    font-weight: bold !important; /* Ensure bold */
+    border: none !important; /* Remove any default button borders */
+    padding: 0 !important; /* Remove any default button padding */
+    line-height: 1 !important; /* Adjust text vertical alignment */
+    cursor: pointer !important; /* Ensure cursor */
+    box-shadow: 0 0 0 2px var(--color-gold-accent) !important; /* Add an outer glow */
+}
+
+/* On hover, for the circled number */
+.rbc-date-cell.rbc-now .rbc-button-link:hover {
+    background-color: var(--color-gold-primary) !important; /* Darker gold on hover */
+    transform: scale(1.05); /* Slight scale up */
+}
+/* --- END NEW --- */
+
+/* --- React Big Calendar Overrides for Theme --- */
+.rbc-calendar {
+  font-family: var(--font-family-primary);
+  color: var(--color-black);
+}
+
+/* Calendar headers (Mon, Tue, Wed...) */
+.rbc-header {
+    background-color: var(--color-gray-light);
+    color: var(--color-black);
+    padding: 10px 0;
+    font-weight: bold;
+    border-bottom: 1px solid var(--color-gray-medium);
+}
+
+/* Day backgrounds */
+.rbc-month-row + .rbc-month-row {
+    border-top: 1px solid var(--color-gray-medium);
+}
+.rbc-day-bg + .rbc-day-bg {
+    border-left: 1px solid var(--color-gray-medium);
+}
+
+/* Current day background */
+.rbc-current-time-indicator {
+    background-color: var(--color-gold-accent);
+}
+
+/* Event text wrapping */
+.rbc-row-segment .rbc-event-content {
+    white-space: normal;
+}

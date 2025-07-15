@@ -1,0 +1,103 @@
+/* src/components/Modal.css */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above everything else */
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+    padding: 25px;
+    width: 90%;
+    max-width: 500px; /* Limit width for readability */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative; /* For positioning close button */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-gray-medium);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-title {
+    color: var(--color-black);
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: var(--color-gray-dark);
+    line-height: 1; /* Adjust vertical alignment */
+    transition: color 0.2s ease;
+}
+
+.modal-close-button:hover {
+    color: var(--color-black);
+}
+
+.modal-body p {
+    color: var(--color-black);
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-align: center; /* Center the message */
+    margin: 0;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center; /* Center buttons */
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.modal-confirm-button,
+.modal-cancel-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.modal-confirm-button {
+    background-color: var(--color-gold-primary);
+    color: var(--color-black);
+    border: none;
+}
+
+.modal-confirm-button:hover {
+    background-color: var(--color-gold-accent);
+    transform: translateY(-2px);
+}
+
+.modal-cancel-button {
+    background-color: var(--color-gray-medium);
+    color: var(--color-black);
+    border: none;
+}
+
+.modal-cancel-button:hover {
+    background-color: var(--color-gray-dark);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}

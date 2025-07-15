@@ -1,0 +1,141 @@
+/* src/pages/Profile.css */
+.profile-container {
+    /* UNLOCKED: Changed to a percentage-based width for a full-screen feel */
+    width: 100%;
+    max-width: 1500px; /* A generous max-width for very large screens */
+    margin: 50px auto;
+    padding: 40px; /* Increased padding for more internal space */
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+    text-align: center;
+    border: 1px solid var(--color-gray-medium);
+}
+
+.profile-container h1 {
+    margin-bottom: 30px;
+    color: var(--color-black);
+}
+
+.profile-form .form-group {
+    margin-bottom: 25px; /* Increased spacing */
+    text-align: left;
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-black);
+}
+
+.profile-form input[type="email"],
+.profile-form input[type="text"],
+.profile-form input[type="date"] {
+    width: 100%; /* Use full width of the container */
+    padding: 12px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Important for 100% width */
+    color: var(--color-black);
+    background-color: var(--color-white);
+}
+
+.profile-form input[type="email"]:disabled {
+    background-color: var(--color-gray-light);
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.profile-form input[type="text"]:focus,
+.profile-form input[type="date"]:focus {
+    outline: none;
+    border-color: var(--color-gold-primary);
+    box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.3);
+}
+
+.profile-form button[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--color-gold-primary);
+    color: var(--color-black);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px; /* Add some space above the button */
+}
+
+.profile-form button[type="submit"]:hover:not(:disabled) {
+    background-color: var(--color-gold-accent);
+    transform: translateY(-2px);
+}
+
+.profile-form button[type="submit"]:disabled {
+    background-color: var(--color-gray-medium);
+    cursor: not-allowed;
+}
+
+/* This section is not currently used in ProfilePage.jsx but is kept for future photo uploads */
+.profile-photo-section {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--color-gray-medium);
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-gold-primary);
+    box-shadow: 0 0 0 5px rgba(184, 134, 11, 0.2);
+}
+
+.custom-file-upload-button {
+    background-color: var(--color-gray-dark); /* Dark button for selection */
+    color: var(--color-white);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.custom-file-upload-button:hover {
+    background-color: var(--color-black); /* Darker on hover */
+    transform: translateY(-2px);
+}
+
+.upload-button {
+    background-color: var(--color-gold-primary); /* Gold button for upload */
+    color: var(--color-black);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.upload-button:hover:not(:disabled) {
+    background-color: var(--color-gold-accent);
+    transform: translateY(-2px);
+}
+
+.upload-button:disabled {
+    background-color: var(--color-gray-medium);
+    cursor: not-allowed;
+}
+
+/* Reusing loading spinner from global styles */
+/* .loading-spinner { ... } */

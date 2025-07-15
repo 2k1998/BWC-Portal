@@ -1,0 +1,175 @@
+/* src/pages/AdminPanel.css */
+.admin-panel-container {
+    width: 95%;
+    max-width: 1500px; /* Made very wide to accommodate the table */
+    margin: 30px auto;
+    padding: 25px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+}
+
+.admin-panel-container h1 {
+    text-align: center;
+    color: var(--color-black);
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    margin-bottom: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    max-width: 400px;
+    padding: 12px 15px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 25px;
+    font-size: 1.1em;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+    color: var(--color-black);
+    background-color: var(--color-white);
+}
+
+.search-bar button {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    background-color: var(--color-gold-primary);
+    color: var(--color-black);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.search-bar button:hover {
+    background-color: var(--color-gold-accent);
+    transform: translateY(-2px);
+}
+
+.user-management-table-wrapper {
+    overflow-x: auto; /* Enable horizontal scrolling for narrow screens */
+    margin-top: 20px;
+}
+
+.user-management-table {
+    width: 100%;
+    border-collapse: collapse; /* Collapse borders */
+    margin-top: 20px;
+}
+
+.user-management-table th,
+.user-management-table td {
+    border: 1px solid var(--color-gray-medium);
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+    color: var(--color-black);
+}
+
+.user-management-table th {
+    background-color: var(--color-black); /* Black header */
+    color: var(--color-white);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.user-management-table tbody tr:nth-child(even) {
+    background-color: var(--color-gray-light); /* Zebra striping */
+}
+
+.user-management-table td {
+    background-color: var(--color-white);
+}
+
+.user-management-table td:last-child {
+    text-align: center; /* Center action buttons */
+}
+
+.action-button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    border: none;
+    margin: 2px; /* Space between buttons */
+}
+
+/* Specific button styling */
+.edit-role-button {
+    background-color: var(--color-gold-primary);
+    color: var(--color-black);
+}
+.edit-role-button:hover {
+    background-color: var(--color-gold-accent);
+    transform: translateY(-1px);
+}
+
+.toggle-status-button.deactivate {
+    background-color: var(--color-warning); /* Yellow for deactivate */
+    color: var(--color-black);
+}
+.toggle-status-button.activate {
+    background-color: var(--color-success); /* Green for activate */
+    color: var(--color-white);
+}
+.toggle-status-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+.delete-button {
+    background-color: var(--color-error);
+    color: var(--color-white);
+}
+.delete-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+/* Styling for inactive users */
+.inactive-user {
+    opacity: 0.6;
+    background-color: var(--color-gray-light) !important;
+    font-style: italic;
+}
+.inactive-user td {
+    color: var(--color-gray-dark) !important;
+}
+
+/* Modal specific styling overrides (for role edit modal) */
+.modal-form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 15px;
+}
+.modal-form-content label {
+    font-weight: bold;
+    color: var(--color-black);
+    margin-bottom: 5px;
+}
+.modal-form-content select {
+    padding: 8px 12px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 5px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: 1em;
+    cursor: pointer;
+}
+.modal-form-content select:focus {
+    outline: none;
+    border-color: var(--color-gold-primary);
+    box-shadow: 0 0 0 2px rgba(var(--color-gold-primary), 0.3);
+}

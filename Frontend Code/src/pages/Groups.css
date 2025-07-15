@@ -1,0 +1,394 @@
+/* src/pages/Groups.css */
+.groups-container,
+.group-detail-container {
+    width: 100%;
+    max-width: 1500px; /* Increased for a wider layout */
+    margin: 30px auto;
+    padding: 25px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+}
+
+.groups-container {
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally (including h1) */
+    gap: 30px; /* Space between h1 and the content wrapper */
+}
+
+.group-detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- Centralized h1 for both pages --- */
+.groups-container h1, .group-detail-container h1 {
+    text-align: center; /* Ensure h1 is centered */
+    color: var(--color-black);
+    margin-bottom: 0; /* Let gap handle spacing if in flex container */
+}
+
+/* --- Main content wrapper for two-column layout --- */
+.group-main-content {
+    width: 100%; /* Take full width available from .groups-container */
+    display: flex; /* This is the actual row-flex container for the columns */
+    gap: 30px; /* Space between the two columns */
+    align-items: flex-start; /* Align columns to the top */
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    justify-content: center; /* Center horizontally when wrapped */
+}
+
+/* --- Create Group Form (Left Column) --- */
+.create-group-form {
+    flex: 0 0 450px; /* Fixed width for the left column, don't grow/shrink */
+    background-color: var(--color-gray-light);
+    padding: 25px;
+    border-radius: var(--border-radius-default);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 0; /* Remove default margin when in flex row */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally within the form */
+}
+
+.create-group-form h3 {
+    text-align: center; /* Centered heading */
+    color: var(--color-black);
+    margin-bottom: 20px;
+    width: 100%; /* Ensure it takes full width for centering */
+}
+
+.create-group-form .form-group {
+    margin-bottom: 15px;
+    width: 100%; /* Take full width of parent (form) */
+    display: flex; /* Make form-group a flex column to center label/input */
+    flex-direction: column;
+    align-items: center; /* Center label and input horizontally */
+}
+
+.create-group-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-black);
+    text-align: center; /* Center label text */
+}
+
+.create-group-form input[type="text"] {
+    width: calc(100% - 20px); /* Account for padding */
+    max-width: 300px; /* Limit input width for better centering appearance */
+    padding: 10px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    color: var(--color-black);
+    background-color: var(--color-white);
+}
+
+.create-group-form input[type="text"]:focus,
+.add-member-form input[type="number"]:focus,
+.assign-task-form input[type="text"]:focus,
+.assign-task-form textarea:focus,
+.assign-task-form input[type="datetime-local"]:focus {
+    outline: none;
+    border-color: var(--color-gold-primary);
+    box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.3);
+}
+
+.add-member-form input[type="number"],
+.assign-task-form input[type="text"],
+.assign-task-form textarea,
+.assign-task-form input[type="datetime-local"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    color: var(--color-black);
+    background-color: var(--color-white);
+}
+
+.assign-task-form input[type="datetime-local"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    color: var(--color-black);
+    background-color: var(--color-white);
+}
+
+.create-group-form button[type="submit"] {
+    width: 80%; /* Make button narrower to emphasize centering */
+    max-width: 300px; /* Match input max-width */
+    padding: 10px 15px;
+    background-color: var(--color-gold-primary);
+    color: var(--color-black);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 25px;
+}
+
+.create-group-form button[type="submit"]:hover {
+    background-color: var(--color-gold-accent);
+    transform: translateY(-2px);
+}
+
+/* --- User Selection Section (within Create Group Form) --- */
+.user-selection-section {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--color-gray-medium);
+    width: 100%; /* Take full width to center its content */
+    display: flex; /* Make it a flex container for centering */
+    flex-direction: column;
+    align-items: center; /* Center its h4 and user list */
+}
+
+.user-selection-section h4 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--color-black);
+    width: 100%; /* Take full width for centering */
+}
+
+.user-checkbox-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 5px;
+    background-color: var(--color-white);
+    width: calc(100% - 20px); /* Adjust width for padding/border */
+    max-width: 350px; /* Limit width for readability and centering */
+    justify-content: center; /* Center grid items if they don't fill the row */
+}
+
+.user-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px;
+    background-color: var(--color-gray-light);
+    border-radius: 4px;
+}
+
+.user-checkbox-item input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    transform: scale(1.2);
+}
+
+.user-checkbox-item label {
+    font-weight: normal;
+    margin-bottom: 0;
+    color: var(--color-black);
+    cursor: pointer;
+}
+
+.user-checkbox-item input[type="checkbox"]:disabled + label {
+    color: var(--color-gray-dark);
+    cursor: not-allowed;
+}
+
+/* --- Existing Groups (Right Column) --- */
+.group-list {
+    flex: 1; /* Takes all remaining available space */
+    min-width: 500px; /* Minimum width before columns stack */
+}
+
+.group-list h2 {
+    color: var(--color-black);
+    margin-bottom: 20px;
+    text-align: left; /* Aligned left in its column */
+    font-size: 1.6em;
+    border-bottom: 2px solid var(--color-gray-medium);
+    padding-bottom: 10px;
+}
+
+.group-item {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-medium);
+    border-radius: var(--border-radius-default);
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--box-shadow-default);
+}
+
+.group-name-link {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--color-gold-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.group-name-link:hover {
+    color: var(--color-gold-accent);
+}
+
+.group-actions .delete-button {
+    background-color: var(--color-error);
+    color: var(--color-white);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.group-actions .delete-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* --- UPDATED/NEW Badge Styling (copy from Tasks.css for consistency) --- */
+.badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: var(--color-white);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    height: 25px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+/* Specific color for Status badges */
+.badge.status-new { background-color: var(--color-info); }
+.badge.status-in_progress { background-color: #0d6efd; }
+.badge.status-completed { background-color: var(--color-success); }
+.badge.all-day-badge {
+    background-color: var(--badge-color-orange) !important; /* <--- ADD !important HERE */
+}
+
+/* --- NEW: Specific Badge Combinations & Colors --- */
+
+/* For Urgent (only) */
+.badge.urgent-only {
+    background-color: var(--badge-color-blue); /* Blue */
+}
+
+/* For Important (only) */
+.badge.important-only {
+    background-color: var(--badge-color-green); /* Green */
+}
+
+/* For Not Urgent and Not Important */
+.badge.not-urgent-not-important {
+    background-color: var(--badge-color-yellow); /* Yellow */
+    color: var(--color-black); /* Black text on yellow */
+}
+
+/* For Urgent and Important (Red outline for item, red badge) */
+.badge.urgent-and-important {
+    background-color: var(--color-error); /* Red */
+    color: var(--color-white);
+}
+
+/* Red Circle Badge for single U or I (if not combined) - keeping this for potential future use or if you prefer single letters */
+.badge.red-circle {
+    background-color: var(--color-error);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    color: var(--color-white);
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+/* --- END UPDATED/NEW Badge Styling */
+
+/* Task item highlight for Urgent + Important - copy from Tasks.css */
+.task-item.urgent-important-highlight {
+    border-color: var(--color-error) !important;
+    box-shadow: 0 0 0 2px var(--color-error);
+}
+
+/* All Day badge (if not already there) */
+.badge.all-day-badge {
+    background-color: var(--color-gray-dark);
+    color: var(--color-white);
+}
+
+/* Status badges (if not already there) */
+.badge.status-new {
+    background-color: var(--color-info);
+}
+.badge.status-in_progress {
+    background-color: #0d6efd;
+}
+.badge.status-completed {
+    background-color: var(--color-success);
+}
+
+/* --- Responsive adjustments (stack columns on smaller screens) --- */
+@media (max-width: 1023px) {
+    .groups-container {
+        align-items: stretch; /* Stretch container content to full width */
+        padding: 20px; /* Adjust padding if needed */
+    }
+    .group-main-content {
+        flex-direction: column; /* Stack columns vertically */
+        align-items: stretch; /* Stretch columns to full width */
+        gap: 20px; /* Adjust gap for vertical stacking */
+    }
+
+    .create-group-form,
+    .group-list {
+        flex: unset; /* Reset flex properties */
+        width: 100%; /* Take full width */
+        min-width: unset; /* Remove min-width restriction when stacked */
+    }
+    .create-group-form { margin-bottom: 0; } /* Let gap handle spacing */
+
+    /* Re-center headings when stacked on smaller screens */
+    .create-group-form h3,
+    .group-list h2 {
+        text-align: center;
+        border-bottom: 2px solid var(--color-gray-medium);
+        padding-bottom: 10px;
+    }
+}
+
+/* --- General Elements (from index.css or common styles) --- */
+.loading-spinner {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2em;
+    color: var(--color-gray-dark);
+}
+.error-message {
+    color: var(--color-error);
+    background-color: rgba(220, 53, 69, 0.1); /* Fallback for error background */
+    border: 1px solid var(--color-error);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
